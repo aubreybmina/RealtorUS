@@ -1,0 +1,102 @@
+@use 'colors' as c;
+@use 'utils' as u;
+@use 'media-queries' as m;
+
+.properties {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center; 
+  margin: u.toRem(40);		
+  @include m.tablet {
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+  }
+  @include m.mobile500px {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+  
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1; 
+    margin-block: u.toRem(30);
+
+    &--image {
+      max-width: 85%;
+      max-height: 85%; 
+
+      img {
+        width: 100%;
+        box-sizing: border-box; 
+      }
+
+      &:hover &--bedbath {
+        cursor: pointer;  
+        border:  u.toRem(0) solid c.$standout-color; 
+        background-color: c.$primary-color;
+        color: c.$standout-color;
+        transition: border 100ms, color 100ms;
+      }
+  
+      &--status {        
+        position: absolute; 
+        top: 0; 
+        background: c.$standout-color;
+        background: c.$standout-seethrough; /* Standout see-through */
+        color: c.$primary-color; 
+        transition: .5s ease;
+        border-radius: u.toRem(4);
+        font-size: u.toRem(12);
+        font-weight: 700;
+        padding: u.toRem(8);
+        margin: u.toRem(8);
+        text-align: center;
+      }
+  
+      &--bedbath {        
+        position: absolute; 
+        top: 0;
+        background: c.$standout-color;
+        background: c.$standout-seethrough; /* Standout see-through */
+        color: c.$primary-color;   
+        transition: .5s ease;
+        border-radius: u.toRem(4);
+        font-size: u.toRem(12);
+        font-weight: 700;
+        padding: u.toRem(8);
+        margin: u.toRem(45) u.toRem(8) u.toRem(8) u.toRem(8);
+        text-align: center;
+      }
+    }
+
+    &--text {
+      background-color: #cfcfcf;
+      width: 85%;
+      color: white;
+      padding: u.toRem(15) u.toRem(10);
+      box-sizing: border-box;
+
+      h3 {
+        font-size: u.toRem(21);
+        font-weight: 700;
+        color: c.$details-color;
+        display: inline;
+      } 
+
+      p {
+        font-size: u.toRem(15);
+        color: c.$details-color;
+      }
+
+      &:hover {
+        background-color: c.$tertiary-color;
+      }
+    }
+  }
+
+}  

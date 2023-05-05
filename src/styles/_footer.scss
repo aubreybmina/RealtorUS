@@ -1,0 +1,10 @@
+@use 'colors' as c;
+@use 'utils' as u;
+
+.footer {
+    align-items: center;
+    background-color: c.$tertiary-color;
+    display: flex;
+    justify-content: center;
+    padding: u.toRem(50) 0; 
+}

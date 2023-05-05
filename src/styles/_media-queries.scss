@@ -1,0 +1,22 @@
+@use 'utils' as u;
+
+@mixin tablet { 
+    @media (max-width: u.toRem(768)) {
+        @content;
+    }
+}
+@mixin mobile { 
+    @media (max-width: u.toRem(268)) {
+        @content;
+    }
+}
+@mixin tablet700px { 
+    @media (max-width: u.toRem(700)) {
+        @content;
+    }
+}
+@mixin mobile500px { 
+    @media (max-width: u.toRem(500)) {
+        @content;
+    }
+}

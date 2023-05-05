@@ -1,0 +1,116 @@
+@use 'colors' as c;
+@use 'utils' as u;
+@use 'media-queries' as m;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  background-image: url("../images/bg-image.jpg");
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  padding: 6% 6%;
+  color: c.$primary-color;
+
+  &__taglinecontainer { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: u.toRem(10);
+      font-size: u.toRem(50);
+      font-weight: 900;
+      line-height: 1.24;
+      color: c.$primary-color; 
+    }
+
+    p {
+      font-size: u.toRem(20);
+      color: c.$tertiary-color; 
+      font-weight: 600; 
+    }
+
+  }
+
+  &__searchcontainer {
+    width: auto;
+
+    &--form {
+      display: grid;
+      grid-template-columns: 1fr 20%;
+      justify-items: center;
+      border-width: u.toRem(1);
+      border-radius: u.toRem(10);
+      padding: 2%;
+      margin: u.toRem(70) 0 0 0;
+      align-items: center;
+
+      @include m.tablet {
+        grid-template-columns: 1fr;
+        width: 25%;
+        align-items: center;
+        justify-items: normal;
+      }
+
+      @include m.mobile {
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-items: normal;
+      }
+
+      input {
+        background-color: c.$primary-color;
+        border: c.$primary-color;
+        color: c.$secondary-color;
+        float: left;
+        height: u.toRem(40);
+        width: 550px;
+        padding: u.toRem(10) u.toRem(10);
+        font-size: 1.5rem;
+
+        &:focus {
+          outline: none;
+        }
+
+        @include m.tablet {
+          width: u.toRem(550);
+        }
+
+        @include m.tablet700px {
+          width: u.toRem(400)
+        }
+
+        @include m.mobile500px {
+          width: u.toRem(280)
+        }
+
+        @include m.mobile {
+          width: u.toRem(200);
+        }
+      }
+
+      button {
+        background: c.$standout-color;
+        border: none;
+        outline: none;
+        color: c.$primary-color;
+        cursor: pointer;
+        height: u.toRem(60);
+        padding: 0 u.toRem(30); 
+        font-size: 1rem;
+
+        &:hover,
+        &:focus {
+          border: u.toRem(0) solid c.$standout-color;
+          background-color: c.$primary-color;
+          transition: border 100ms, color 100ms;
+          color: c.$standout-color;
+        }
+
+      }
+    }
+  }
+}

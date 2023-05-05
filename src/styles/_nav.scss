@@ -1,0 +1,131 @@
+@use 'colors' as c;
+@use 'utils' as u;
+@use 'media-queries' as m;
+
+.navbar {
+	height: u.toRem(80);
+	display: flex;
+	justify-content: space-between;
+	z-index: 10;
+	position: relative;
+
+	&__logo {
+		color: c.$secondary-color;
+		cursor: pointer;
+		text-decoration: none;
+		font-size: 2rem;
+		margin-left: u.toRem(24);
+		display: flex;
+		align-items: center; 
+        width: u.toRem(200);
+	}
+
+	&__bars {
+		opacity: 0;
+		@include m.tablet {
+			color: c.$secondary-color;
+			opacity: 1;
+			position: absolute;
+			top: u.toRem(22);
+			right: u.toRem(20);
+			font-size: 2rem;
+		}
+
+        &--icon {
+			color: c.$secondary-color;
+
+			&:hover {
+				color: c.$standout-color;
+				transition: all 0.3s ease;
+			}
+		}
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 0;
+            background-color: c.$primary-color;
+            color: c.$secondary-color;
+            font-weight: 500;
+            animation: fade-in-animation 0.3s;
+
+            &--link {
+				font-size: u.toRem(18);
+                padding: u.toRem(5) u.toRem(10);
+                margin: u.toRem(15) u.toRem(20);
+                color: c.$secondary-color;
+                justify-content: center;
+                text-decoration: none;
+                align-items: center;
+    
+                &:hover {
+                    color: c.$standout-color;
+                    transition: all 0.3s ease;
+                }
+            }
+
+            &--button {
+                padding: u.toRem(12) u.toRem(24);
+                border: none;
+                outline: none;
+                border-radius: u.toRem(4);
+                background: c.$standout-color;
+                margin-left: u.toRem(16);
+                color: c.$primary-color;
+    
+                &:hover {
+                    border:  u.toRem(0) solid c.$standout-color; 
+                    background-color: c.$primary-color;
+                    transition: border 100ms, color 100ms;
+                }
+    
+            }
+        }
+    }
+
+	&__menu {
+		list-style: none;
+		text-align: center;
+		margin-right: u.toRem(24);
+		display: flex;
+		align-items: center;
+		@include m.tablet {
+			display: none;
+		}
+
+		&--link {
+			font-size: u.toRem(18);
+			font-weight: 500;
+			color: c.$secondary-color;
+			justify-content: center;
+			text-decoration: none;
+			padding: 0 1rem;
+			display: flex;
+			align-items: center;
+
+			&:hover {
+				color: c.$standout-color;
+				transition: all 0.3s ease;
+			}
+		}
+
+		&--button {
+			padding: u.toRem(12) u.toRem(24);
+			border: none;
+			outline: none;
+			border-radius: u.toRem(4);
+			background: c.$standout-color;
+			margin-left: u.toRem(16);
+			color: c.$primary-color;
+			cursor: pointer;
+
+			&:hover {
+                border: u.toRem(1) solid c.$standout-color; 
+                background-color: c.$primary-color;
+                transition: border 100ms, color 100ms;
+			}
+
+		}
+	} 
+}

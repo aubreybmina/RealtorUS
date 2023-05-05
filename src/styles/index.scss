@@ -1,0 +1,12 @@
+@use 'colors' as c;
+@use 'properties';
+@use 'nav';  
+@use 'hero';
+@use 'footer';
+
+.main {
+	background: c.$primary-color;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+
