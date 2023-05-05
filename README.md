@@ -92,9 +92,9 @@ Make sure you have Node.js installed in your computer. To check if you have it i
    ```sh
    npm install -g sass
    ```
-4. Enter your API in `Property.js`
+4. Enter your API_KEY in `.env`
    ```js
-   const API_URL = 'ENTER YOUR API';
+   REACT_APP_API_KEY = 'ENTER YOUR API_KEY';
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
